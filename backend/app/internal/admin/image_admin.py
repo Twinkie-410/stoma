@@ -4,4 +4,4 @@ from django.contrib import admin
 
 @admin.register(Image)
 class ImageAdmin(admin.ModelAdmin):
-    pass
+    list_display = ("id", "__str__")

@@ -8,5 +8,5 @@ class ArticleSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Article
-        fields = ["title", "text", "images", "images_detail"]
+        fields = ["id", "title", "text", "images", "images_detail"]
         extra_kwargs = {"images": {"required": False, "allow_empty": True}}

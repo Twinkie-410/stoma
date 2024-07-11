@@ -12,3 +12,11 @@ class Image(models.Model):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name = "изображение"
+        verbose_name_plural = "изображения"
+
+    def delete(self, using=None, keep_parents=False):
+        self.image.delete()
+        return super().delete()

@@ -8,3 +8,13 @@ class Article(models.Model):
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        verbose_name = "статья"
+        verbose_name_plural = "статьи"
+
+    def delete(self, using=None, keep_parents=False):
+        for image in self.images.all():
+            if image.article_set.count() <= 1:
+                image.delete()
+        return super().delete(using, keep_parents)

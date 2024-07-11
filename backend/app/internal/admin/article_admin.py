@@ -4,4 +4,4 @@ from django.contrib import admin
 
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
-    pass
+    list_display = ("id", "__str__")
